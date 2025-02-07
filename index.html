@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head>
     <title>BusyBox PH</title>
@@ -62,7 +62,9 @@
 
     </div>
 
-    <a href="{{ url_for('product_generator') }}">Product Generator (Admin)</a> <a href="{{ url_for('digital_product') }}">Add Digital Product</a>
+    <a href="{{ url_for('product_generator') }}">Product Generator</a>  <a href="/product_generator">Product Generator</a>  <a href="{{ url_for('digital_product') }}">Add Digital Product</a>  ```
+
+Using `{{ url_for('route_function_name') }}` is the best practice because it dynamically generates the correct URL, even if your routes change.
 
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
