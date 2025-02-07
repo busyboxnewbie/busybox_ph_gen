@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BusyBox PH</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">  </head>
+<body>
+    <h1>BusyBox PH</h1>
+
+    <div class="container">
+        <div class="column">
+            <h2>Shopee</h2>
+            <ul>
+                {% for product in products.shopee %}
+                    <li>
+                        <img src="{{ product.image_url }}" alt="{{ product.title }}" width="100">
+                        <h3>{{ product.title }}</h3>
+                        <p>{{ product.price }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="column">
+            <h2>Lazada</h2>
+            <ul>
+                {% for product in products.lazada %}
+                    <li>
+                        <img src="{{ product.image_url }}" alt="{{ product.title }}" width="100">
+                        <h3>{{ product.title }}</h3>
+                        <p>{{ product.price }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="column">
+            <h2>Amazon</h2>
+            <ul>
+                {% for product in products.amazon %}
+                    <li>
+                        <img src="{{ product.image_url }}" alt="{{ product.title }}" width="100">
+                        <h3>{{ product.title }}</h3>
+                        <p>{{ product.price }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="column">
+            <h2>Digital Products</h2>
+            <ul>
+                {% for product in products.digital %}
+                    <li>
+                        {% if product.image_url %}
+                        <img src="{{ product.image_url }}" alt="{{ product.title }}" width="100">
+                        {% endif %}
+                        <h3>{{ product.title }}</h3>
+                        <p>{{ product.details }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+    <a href="{{ url_for('product_generator') }}">Product Generator (Admin)</a> <a href="{{ url_for('digital_product') }}">Add Digital Product</a>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
