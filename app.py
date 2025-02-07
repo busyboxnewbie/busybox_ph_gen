@@ -13,10 +13,13 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER # Make it accessible in other parts 
 
 # ... your other routes and functions ...
 
-@app.route("/digital_product", methods=["GET", "POST"])
+@app.route("/product_generator", methods=["GET", "POST"])  # Correct
+def product_generator():
+    # ... your code ...
+
+@app.route("/digital_product", methods=["GET", "POST"])  # Correct
 def digital_product():
-    if request.method == "POST":
-        # ... other code ...
+    # ... your code ...
 
         image = request.files.get("image")
         if image:
