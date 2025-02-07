@@ -13,21 +13,12 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER # Make it accessible in other parts 
 
 # ... your other routes and functions ...
 
-@app.route("/product_generator", methods=["GET", "POST"])  # Correct
-def product_generator():
-    # ... your code ...
-
-@app.route("/digital_product", methods=["GET", "POST"])  # Correct
+@app.route("/digital_product", methods=["GET", "POST"])
 def digital_product():
-    # ... your code ...
-
-        image = request.files.get("image")
-        if image:
-            filename = image.filename # Keep original filename
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename) # Use os.path.join for path safety
-            image.save(filepath) # Save using the correct path
-
-            image_url = url_for('static', filename='uploads/' + filename) # Generate URL for the image
-            # ... rest of your code ...
-
+    if request.method == "POST":
+        title = request.form.get("title")
+        details = request.form.get("details")
+        image = request.files.get("image")  # Line 21 - Correct indentation (4 spaces)
+        # ... rest of your code ...
+        
 # ... rest of your Flask app code
